@@ -1,0 +1,17 @@
+{
+    "baseURL" : "https://gorest.co.in/public-api/users/",
+    "getUserListURL" : "https://gorest.co.in/public/v2/users",
+    "accesstoken" : "?access-token=",
+    "auth": {
+            "TOKEN" :"c4f17a80e91c5a9368535ff65f17bad328fc3191b4892dae81a60340bec89e5c"
+             },
+    "pathuser" : "3396",
+    "queryParameter" :{
+       "parameterURL": "&page=4&gender=Female&status=Active",
+        "gender" : "Female",
+        "status" : "Active"
+    }     
+
+
+        
+}
