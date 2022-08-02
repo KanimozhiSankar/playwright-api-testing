@@ -9,15 +9,20 @@ const faker = require('@faker-js/faker');
 
 
 test('POST METHOD -path Parameters - Posting User name & email data', async ({request}) => {
-  const data = {
-    
-  "name":faker.faker.lorem.sentence(),
-  "email": faker.faker.internet.email(),
-  "gender":"female",
-  "status":"active"
-  }
+  let employees = [];
+    for (let id = 1; id <= 10; id++) {
+     
+    const data = {
+        "id":id,
+        "name":faker.faker.lorem.sentence(),
+        "email": faker.faker.internet.email(),
+        "gender": faker.faker.helpers.arrayElement(['Female', 'Male']),
+        "status":faker.faker.helpers.arrayElement(['active', 'inactive']),
+  
+ 
+      }
 
-  const repo_userLogin = datahandler.getdata().pathuser+datahandler.getdata().accesstoken+datahandler.getdata().auth.TOKEN
+  const repo_userLogin = datahandler.getdata().accesstoken+datahandler.getdata().auth.TOKEN
   const crudmethods = new CRUDMethods();
   const commonmethods = new CommonMethods();
   const response = await crudmethods.doPost(request,datahandler.getdata().baseURL + repo_userLogin,data) 
@@ -25,10 +30,11 @@ test('POST METHOD -path Parameters - Posting User name & email data', async ({re
   const respJson =  await commonmethods.get_responsepayload(response)
   await commonmethods.getResponseHeaderValue(response, 'content-type') 
   //expect(await respJson.data).to.deep.include(data)
-  expect(await respJson.data.gender).to.be.eq(data.gender)
+  //expect(await respJson.data.gender).to.be.eq(data.gender)
   expect(await response).to.be.ok
+  console.log(respJson)
   
-
+    }
 });  
 
 

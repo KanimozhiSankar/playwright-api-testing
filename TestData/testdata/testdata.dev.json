@@ -1,5 +1,5 @@
 {
-    "baseURL" : "https://gorest.co.in/public-api/users/",
+    "baseURL" : "https://gorest.co.in/public-api/users",
     "getUserListURL" : "https://gorest.co.in/public/v2/users",
     "accesstoken" : "?access-token=",
     "auth": {
@@ -7,9 +7,7 @@
              },
     "pathuser" : "3396",
     "queryParameter" :{
-       "parameterURL": "&page=4&gender=Female&status=Active",
-        "gender" : "Female",
-        "status" : "Active"
+       "parameterURL": "&page=4&gender=Female&status=Active"
     }     
 
 
