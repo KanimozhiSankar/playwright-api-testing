@@ -1,5 +1,9 @@
 const { assert,expect } = require("chai");
 
+const fs = require('fs');
+const faker = require('@faker-js/faker');
+
+
 class CommonMethods{
 
 async extract_ID(response){
@@ -70,6 +74,19 @@ async check_responsetime(response){
         assert(size > 10000, "Download size vs speed issue");
 }
 }
+
+async generatetestdata(generateInvalidData){
+
+    let data = {
+        "name": faker.faker.lorem.sentence(),
+        "email": generateInvalidData ? faker.faker.helpers.arrayElement(['x@.com', 'abc@xyz','abc.com','','abc@']) : faker.faker.internet.email(),
+        "gender": faker.faker.helpers.arrayElement(['Female', 'Male']),
+        "status":faker.faker.helpers.arrayElement(['active', 'inactive'])    
+    }
+    return data;
+}
+
+
 }
 
 
